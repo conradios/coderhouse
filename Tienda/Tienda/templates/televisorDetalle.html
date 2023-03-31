@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block content %}
+{% block title %} Detalle Televisores {% endblock %}
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{televisor.titulo}}</h4></p>
+{% if televisor.imagenProducto %}
+    <p><img src="{{televisor.imagenProducto.url}}" width="800" height="500" alt=""></p>
+{% endif %}
+<p>Marca: {{televisor.marca}}</p>
+<p>Modelo: {{televisor.modelo}}</p>
+<p>Descripción: {{televisor.descripcion}}</p>
+<p>Año: {{televisor.year}}</p>
+<p>Precio: {{televisor.precio}}</p>
+<p>Teléfono de Contacto: {{televisor.telefonoContacto}}</p>
+<p>Email de Contacto: {{televisor.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not televisor.comentarios.all %}
+        No han comentado este Producto
+    {% else %}
+        {% for comentario in televisor.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' televisor.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}

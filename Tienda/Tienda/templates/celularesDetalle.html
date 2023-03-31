@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block content %}
+{% block title %} Detalle Celulares {% endblock %}
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{celular.titulo}}</h4></p>
+{% if celular.imagenProducto %}
+    <p><img src="{{celular.imagenProducto.url}}" width="400" height="300" alt=""></p>
+{% endif %}
+<p>Marca: {{celular.marca}}</p>
+<p>Modelo: {{celular.modelo}}</p>
+<p>Descripción: {{celular.descripcion}}</p>
+<p>Año: {{celular.year}}</p>
+<p>Precio: {{celular.precio}}</p>
+<p>Teléfono de Contacto: {{celular.telefonoContacto}}</p>
+<p>Email de Contacto: {{celular.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not celular.comentarios.all %}
+        No han comentado este Producto
+    {% else %}
+        {% for comentario in celular.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' celular.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}

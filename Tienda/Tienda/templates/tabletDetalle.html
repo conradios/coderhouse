@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block content %}
+{% block title %} Detalle Tablets {% endblock %}
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{tablet.titulo}}</h4></p>
+{% if tablet.imagenProducto %}
+    <p><img src="{{tablet.imagenProducto.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{tablet.marca}}</p>
+<p>Modelo: {{tablet.modelo}}</p>
+<p>Descripción: {{tablet.descripcion}}</p>
+<p>Año: {{tablet.year}}</p>
+<p>Precio: {{tablet.precio}}</p>
+<p>Teléfono de Contacto: {{tablet.telefonoContacto}}</p>
+<p>Email de Contacto: {{tablet.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not tablet.comentarios.all %}
+        No han comentado este Producto
+    {% else %}
+        {% for comentario in tablet.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' tablet.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock %}

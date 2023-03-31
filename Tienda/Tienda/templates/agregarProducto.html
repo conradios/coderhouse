@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block title %} Agregar Producto {% endblock %}
+{% block content %}
+
+<form enctype='multipart/form-data' style="width: 50vw; margin-left : 10vw;" method="post">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit"> Guardar </button>
+
+</form>
+
+{% endblock %}

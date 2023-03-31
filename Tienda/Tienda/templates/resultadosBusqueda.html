@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+{% block content %}
+{% block title %} Resultados de tu Busqueda {% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+</head>
+<body>
+    <p> Estas buscando <strong> {{query}} </strong></p>
+
+    {% if articulos %}
+
+        <p> Se encontraron {{articulos.length}} articulos: </p>
+
+        <ul>
+
+            {% for articulo in articulos %}
+
+            <li>
+                 
+                 <p> {{articulo.nombre}} de la seccion {{articulo.seccion}} con un precio de {{articulo.precio}}</p>
+
+                 
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+
+        <p> No se encontro ningun articulo con ese nombre</p>
+
+    {% endif %}
+</body>
+</html>
+
+{% endblock %}
