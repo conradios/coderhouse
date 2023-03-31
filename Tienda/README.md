@@ -10,6 +10,10 @@ Entrega final del curso de Python en CoderHouse
 4- Ejecutar "python manage.py runserver"
 5- Abrir el navegador en la dirección http://localhost:8000/
 
+Video
+
+https://youtu.be/Oeu4Z7Mdkug
+
 Rutas:
 
 admin/ - Ruta predeterminada del panel de administración de Django.
