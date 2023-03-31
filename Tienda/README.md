@@ -13,9 +13,13 @@ Entrega final del curso de Python en CoderHouse
 Rutas:
 
 admin/ - Ruta predeterminada del panel de administración de Django.
+
 inicio/ - Ruta de la página de inicio de la aplicación.
+
 Productos/ - Ruta para mostrar una lista de productos.
+
 ResultadosBusqueda/ - Ruta para mostrar los resultados de una búsqueda de productos.
+
 AgregarProducto/ - Ruta para agregar un nuevo producto.
 about/ - Ruta para mostrar información sobre la aplicación.
 contacto/ - Ruta para mostrar información de contacto.
